@@ -5,9 +5,9 @@ return {
 		null_ls.setup({
 			sources = {
 				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.diagnostics.selene,
+				-- null_ls.builtins.diagnostics.selene,
 			},
 		})
-		vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, {desc = "[F]ormat"})
+		vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "[F]ormat" })
 	end,
 }
