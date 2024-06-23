@@ -11,6 +11,8 @@ return {
 		require('which-key').register {
 			['<leader>l'] = { name = '[L]anguage', _ = 'which_key_ignore' },
 			['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
+			['<leader>t'] = { name = '[T]erminal', _ = 'which_key_ignore' },
+			['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
 		}
 	end,
 }
