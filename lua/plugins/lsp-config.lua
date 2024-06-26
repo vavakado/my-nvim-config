@@ -40,6 +40,13 @@ return {
 				capabilities = capabilities,
 			}
 			lspconfig.csharp_ls.setup {
+				root_dir = function(startpath)
+					return lspconfig.util.root_pattern '*.sln'(startpath)
+						or lspconfig.util.root_pattern '*.csproj'(startpath)
+						or lspconfig.util.root_pattern '*.fsproj'(startpath)
+						or lspconfig.util.root_pattern '.plastic'(startpath)
+						or lspconfig.util.root_pattern '.git'(startpath)
+				end,
 				capabilities = capabilities,
 			}
 

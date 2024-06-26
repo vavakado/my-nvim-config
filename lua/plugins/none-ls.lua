@@ -6,7 +6,8 @@ return {
 		null_ls.setup {
 			sources = {
 				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.csharpier,
+				-- null_ls.builtins.formatting.clang_format,
+				null_ls.builtins.formatting.astyle,
 				-- null_ls.builtins.diagnostics.selene,
 			},
 			on_attach = function(client, bufnr)
