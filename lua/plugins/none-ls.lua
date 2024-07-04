@@ -6,10 +6,8 @@ return {
 		null_ls.setup {
 			sources = {
 				null_ls.builtins.formatting.stylua,
-				-- null_ls.builtins.formatting.clang_format,
-				null_ls.builtins.formatting.astyle,
-				null_ls.builtins.formatting.nixfmt,
-				-- null_ls.builtins.diagnostics.selene,
+				-- null_ls.builtins.formatting.nixfmt, # fuck nix, i can't stand it anymore
+				null_ls.builtins.formatting.prettierd,
 			},
 			on_attach = function(client, bufnr)
 				if client.supports_method 'textDocument/formatting' then
@@ -18,8 +16,6 @@ return {
 						group = augroup,
 						buffer = bufnr,
 						callback = function()
-							-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-							-- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
 							vim.lsp.buf.format { async = false }
 						end,
 					})

@@ -5,25 +5,13 @@ return {
 			require('mason').setup {
 				PATH = 'append',
 			}
-			local mason_registry = require 'mason-registry'
-			mason_registry:on('package:install:success', function(pkg)
-				pkg:get_receipt():if_present(function(receipt)
-					for _, rel_path in pairs(receipt.links.bin) do
-						local bin_abs_path = pkg:get_install_path() .. '/extension/server/bin/' .. rel_path
-						os.execute(
-							'patchelf --set-interpreter "$(patchelf --print-interpreter $(grep -oE \\/nix\\/store\\/[a-z0-9]+-neovim-unwrapped-[0-9]+\\.[0-9]+\\.[0-9]+\\/bin\\/nvim $(which nvim)))" '
-								.. bin_abs_path
-						)
-					end
-				end)
-			end)
 		end,
 	},
 	{
 		'williamboman/mason-lspconfig.nvim',
 		config = function()
 			require('mason-lspconfig').setup {
-				ensure_installed = { 'lua_ls', 'gopls', 'csharp_ls' },
+				ensure_installed = { 'lua_ls', "marksman", 'gopls', 'csharp_ls' },
 			}
 		end,
 	},
@@ -39,13 +27,61 @@ return {
 			lspconfig.gopls.setup {
 				capabilities = capabilities,
 			}
+			lspconfig.marksman.setup {
+				capabilities = capabilities,
+			}
+			lspconfig.html.setup {
+				capabilities = capabilities,
+			}
+			lspconfig.cssls.setup {
+				capabilities = capabilities,
+			}
+			lspconfig.rust_analyzer.setup {
+				capabilities = capabilities,
+				config = {
+					rust_analyzer = {
+						settings = {
+							['rust-analyzer'] = {
+								check = {
+									command = 'clippy',
+									extraArgs = {
+										'--no-deps',
+									},
+								},
+								assist = {
+									importEnforceGranularity = true,
+									importPrefix = 'crate',
+								},
+								completion = {
+									postfix = {
+										enable = false,
+									},
+								},
+								inlayHints = {
+									lifetimeElisionHints = {
+										enable = true,
+										useParameterNames = true,
+									},
+								},
+							},
+						},
+					},
+				},
+				on_attach = function(client, bufnr)
+					vim.lsp.inlay_hint.enable(true)
+				end,
+				root_dir = function(startpath)
+					return lspconfig.util.root_pattern 'Cargo.toml' (startpath) or
+						lspconfig.util.root_pattern '.git' (startpath)
+				end,
+			}
 			lspconfig.csharp_ls.setup {
 				root_dir = function(startpath)
-					return lspconfig.util.root_pattern '*.sln'(startpath)
-						or lspconfig.util.root_pattern '*.csproj'(startpath)
-						or lspconfig.util.root_pattern '*.fsproj'(startpath)
-						or lspconfig.util.root_pattern '.plastic'(startpath)
-						or lspconfig.util.root_pattern '.git'(startpath)
+					return lspconfig.util.root_pattern '*.sln' (startpath)
+						or lspconfig.util.root_pattern '*.csproj' (startpath)
+						or lspconfig.util.root_pattern '*.fsproj' (startpath)
+						or lspconfig.util.root_pattern '.plastic' (startpath)
+						or lspconfig.util.root_pattern '.git' (startpath)
 				end,
 				capabilities = capabilities,
 			}

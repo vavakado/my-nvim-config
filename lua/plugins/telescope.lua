@@ -6,7 +6,8 @@ return {
 			local builtin = require 'telescope.builtin'
 			vim.keymap.set('n', '<Leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
 			vim.keymap.set('n', '<Leader>fw', builtin.live_grep, { desc = '[F]ind [W]ord' })
-			vim.keymap.set('n', '<Leader>fa', '<cmd>cd ~/.config/nvim/<CR><cmd>Telescope find_files<CR>', { desc = '[F]ind config' })
+			vim.keymap.set('n', '<Leader>fa', '<cmd>cd ~/.config/nvim/<CR><cmd>Telescope find_files<CR>',
+				{ desc = '[F]ind config' })
 		end,
 	},
 	{
