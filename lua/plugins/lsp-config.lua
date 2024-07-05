@@ -11,7 +11,7 @@ return {
 		'williamboman/mason-lspconfig.nvim',
 		config = function()
 			require('mason-lspconfig').setup {
-				ensure_installed = { 'lua_ls', "marksman", 'gopls', 'csharp_ls' },
+				ensure_installed = { 'lua_ls', 'jsonls', 'prettierd', 'stylua', 'html-lsp', 'cssls', 'marksman', 'gopls', 'csharp_ls' },
 			}
 		end,
 	},
@@ -34,6 +34,9 @@ return {
 				capabilities = capabilities,
 			}
 			lspconfig.cssls.setup {
+				capabilities = capabilities,
+			}
+			lspconfig.jsonls.setup {
 				capabilities = capabilities,
 			}
 			lspconfig.rust_analyzer.setup {
@@ -72,7 +75,7 @@ return {
 				end,
 				root_dir = function(startpath)
 					return lspconfig.util.root_pattern 'Cargo.toml' (startpath) or
-						lspconfig.util.root_pattern '.git' (startpath)
+					lspconfig.util.root_pattern '.git' (startpath)
 				end,
 			}
 			lspconfig.csharp_ls.setup {
