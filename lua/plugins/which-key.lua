@@ -13,6 +13,7 @@ return {
 			['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
 			['<leader>t'] = { name = '[T]erminal', _ = 'which_key_ignore' },
 			['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+			['<leader>u'] = { name = '[U]i', _ = 'which_key_ignore' },
 		}
 	end,
 }

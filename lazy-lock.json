@@ -32,6 +32,7 @@
   "toggleterm.nvim": { "branch": "main", "commit": "066cccf48a43553a80a210eb3be89a15d789d6e6" },
   "tokyonight": { "branch": "main", "commit": "c16eaeb9eaf4eb307431e58ec6101eecf2dbe52d" },
   "trouble.nvim": { "branch": "main", "commit": "e5d0e04121c662ce29190a57dd03655d43c59d44" },
+  "undotree": { "branch": "main", "commit": "eab459ab87dd249617b5f7187bb69e614a083047" },
   "web-tools.nvim": { "branch": "master", "commit": "a831f4347153e7ec40cd85f88ff04a41c5b223dd" },
   "which-key.nvim": { "branch": "main", "commit": "0099511294f16b81c696004fa6a403b0ae61f7a0" }
 }
