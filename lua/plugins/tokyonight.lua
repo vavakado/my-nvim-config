@@ -4,6 +4,14 @@ return {
 	lazy = false,
 	priority = 1000,
 	config = function()
-		vim.cmd.colorscheme 'tokyonight-night'
+		require('tokyonight').setup {
+			style = 'night',
+			--transparent = true,
+			--			on_colors = function(colors)
+			--				colors.hint = colors.orange
+			--				colors.error = '#ff0000'
+			--			end,
+		}
+		vim.cmd.colorscheme 'tokyonight'
 	end,
 }

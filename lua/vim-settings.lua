@@ -77,5 +77,5 @@ vim.keymap.set('', 'I', 'L')
 vim.keymap.set('', 'O', 'P')
 vim.keymap.set('', 'K', 'N')
 vim.o.langmap =
-'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
+	'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
 vim.o.langremap = true
