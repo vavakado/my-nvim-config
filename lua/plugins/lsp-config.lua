@@ -39,49 +39,16 @@ return {
 			lspconfig.jsonls.setup {
 				capabilities = capabilities,
 			}
-			lspconfig.rust_analyzer.setup {
+			lspconfig.csharp_ls.setup {
 				capabilities = capabilities,
-				config = {
-					rust_analyzer = {
-						settings = {
-							['rust-analyzer'] = {
-								check = {
-									command = 'clippy',
-									extraArgs = {
-										'--no-deps',
-									},
-								},
-								assist = {
-									importEnforceGranularity = true,
-									importPrefix = 'crate',
-								},
-								completion = {
-									postfix = {
-										enable = false,
-									},
-								},
-								inlayHints = {
-									lifetimeElisionHints = {
-										enable = true,
-										useParameterNames = true,
-									},
-								},
-							},
-						},
-					},
-				},
-				on_attach = function(client, bufnr)
-					vim.lsp.inlay_hint.enable(true)
-				end,
-				root_dir = function(startpath)
-					return lspconfig.util.root_pattern 'Cargo.toml' (startpath) or
-						lspconfig.util.root_pattern '.git' (startpath)
-				end,
 			}
-
+			lspconfig.gdscript.setup {
+				capabilities = capabilities,
+			}
 			vim.keymap.set('n', 'J', vim.lsp.buf.hover, { desc = 'Hover' })
 			vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = '[G]o to [D]efinition' })
 			vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, { desc = 'Code [A]ctions' })
+			vim.keymap.set({ 'n', 'v' }, '<leader>lr', vim.lsp.buf.rename, { desc = '[R]ename' })
 		end,
 	},
 }

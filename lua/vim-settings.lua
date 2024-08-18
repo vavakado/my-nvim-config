@@ -40,6 +40,16 @@ vim.keymap.set('n', '<leader>uw', '<cmd>set wrap!<CR>', { desc = 'Toggle [W]rap'
 
 if vim.g.neovide then
 	vim.o.guifont = 'Iosevka Nerd Font Mono:h15'
+	vim.g.neovide_scale_factor = 1.0
+	local change_scale_factor = function(delta)
+		vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
+	end
+	vim.keymap.set('n', '<C-=>', function()
+		change_scale_factor(1.05)
+	end)
+	vim.keymap.set('n', '<C-->', function()
+		change_scale_factor(1 / 1.05)
+	end)
 end
 
 vim.keymap.set('', 'f', 'e')

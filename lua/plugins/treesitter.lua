@@ -6,6 +6,7 @@ return {
 		config.setup {
 			auto_install = true,
 			ensure_installed = { 'lua', 'vim', 'c', 'vimdoc', 'go' },
+			ignore_install = { 'org' },
 			highlight = { enable = true },
 			indent = { enable = true },
 		}

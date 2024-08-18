@@ -7,13 +7,21 @@ return {
 	end,
 	config = function()
 		require('which-key').setup()
+		local wk = require 'which-key'
 
-		require('which-key').register {
-			['<leader>l'] = { name = '[L]anguage', _ = 'which_key_ignore' },
-			['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
-			['<leader>t'] = { name = '[T]erminal', _ = 'which_key_ignore' },
-			['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-			['<leader>u'] = { name = '[U]i', _ = 'which_key_ignore' },
+		wk.add {
+			{ '<leader>d', group = '[D]ebugger' },
+			{ '<leader>d_', hidden = true },
+			{ '<leader>f', group = '[F]ind' },
+			{ '<leader>f_', hidden = true },
+			{ '<leader>g', group = '[G]it' },
+			{ '<leader>g_', hidden = true },
+			{ '<leader>l', group = '[L]anguage' },
+			{ '<leader>l_', hidden = true },
+			{ '<leader>t', group = '[T]erminal' },
+			{ '<leader>t_', hidden = true },
+			{ '<leader>u', group = '[U]i' },
+			{ '<leader>u_', hidden = true },
 		}
 	end,
 }
