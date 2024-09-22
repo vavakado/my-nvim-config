@@ -188,6 +188,11 @@ return {
 			--		cond = conditions.hide_in_width,
 			--		color = { fg = colors.green, gui = 'bold' },
 			--	}
+			ins_right {
+				'require("bidi").buf_get_bidi_mode(vim.api.nvim_win_get_buf(0))',
+				fmt = string.upper,
+				color = { fg = colors.green, gui = 'bold' },
+			}
 
 			ins_right {
 				'fileformat',
