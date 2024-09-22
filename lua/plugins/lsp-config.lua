@@ -11,7 +11,18 @@ return {
 		'williamboman/mason-lspconfig.nvim',
 		config = function()
 			require('mason-lspconfig').setup {
-				ensure_installed = { 'lua_ls', 'jsonls', 'html', 'cssls', 'marksman', 'gopls' },
+				ensure_installed = {
+					'lua_ls',
+					'gopls',
+					'marksman',
+					'html',
+					'tailwindcss',
+					'cssls',
+					'jsonls',
+					'ts_ls',
+					'docker_compose_language_service',
+					'dockerls',
+				},
 			}
 		end,
 	},
@@ -33,7 +44,7 @@ return {
 				'jsonls',
 				'csharp_ls',
 				'gdscript',
-				'tsserver',
+				'ts_ls',
 				'docker_compose_language_service',
 				'dockerls',
 			}
