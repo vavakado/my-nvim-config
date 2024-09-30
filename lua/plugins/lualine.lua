@@ -94,7 +94,7 @@ return {
 			ins_left {
 				-- mode component
 				function()
-					return '󰣇'
+					return '󰣠'
 				end,
 				color = function()
 					-- auto change color according to neovims mode
@@ -124,6 +124,11 @@ return {
 				end,
 				padding = { right = 1 },
 			}
+			--
+			-- ins_left {
+			-- 	'mode',
+			-- 	cond = conditions.buffer_not_empty,
+			-- }
 
 			ins_left {
 				-- filesize component

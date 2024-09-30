@@ -12,16 +12,16 @@ return {
 		config = function()
 			require('mason-lspconfig').setup {
 				ensure_installed = {
-					'lua_ls',
-					'gopls',
-					'marksman',
-					'html',
-					'tailwindcss',
 					'cssls',
-					'jsonls',
-					'ts_ls',
 					'docker_compose_language_service',
 					'dockerls',
+					'gopls',
+					'html',
+					'jsonls',
+					'lua_ls',
+					'marksman',
+					'tailwindcss',
+					'ts_ls',
 				},
 			}
 		end,
@@ -35,18 +35,18 @@ return {
 			local capabilities = cmp_nvim_lsp.default_capabilities()
 
 			local servers = {
-				'lua_ls',
-				'gopls',
-				'marksman',
-				'html',
-				'tailwindcss',
-				'cssls',
-				'jsonls',
 				'csharp_ls',
-				'gdscript',
-				'ts_ls',
+				'cssls',
 				'docker_compose_language_service',
 				'dockerls',
+				'gdscript',
+				'gleam',
+				'gopls',
+				'html',
+				'jsonls',
+				'marksman',
+				'tailwindcss',
+				'ts_ls',
 			}
 
 			for _, lsp in ipairs(servers) do
