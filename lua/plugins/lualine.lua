@@ -11,8 +11,8 @@ return {
 			-- Color table for highlights
 			-- stylua: ignore
 			local colors = {
-				bg       = '#1e1e2e',
-				fg       = '#cad3f5',
+				bg       = '#cad3f5',
+				fg       = '#1e1e2e',
 				yellow   = '#ECBE7B',
 				cyan     = '#008080',
 				darkblue = '#081633',
@@ -44,13 +44,7 @@ return {
 					-- Disable sections and component separators
 					component_separators = '',
 					section_separators = '',
-					theme = {
-						-- We are going to use lualine_c an lualine_x as left and
-						-- right section. Both are highlighted by c theme .  So we
-						-- are just setting default looks o statusline
-						normal = { c = { fg = colors.fg, bg = colors.bg } },
-						inactive = { c = { fg = colors.fg, bg = colors.bg } },
-					},
+					theme = 'everforest',
 				},
 				sections = {
 					-- these are to remove the defaults
@@ -183,7 +177,7 @@ return {
 					return msg
 				end,
 				icon = ' LSP:',
-				color = { fg = '#ffffff', gui = 'bold' },
+				color = { fg = '#000000', gui = 'bold' },
 			}
 
 			-- Add components to right sections

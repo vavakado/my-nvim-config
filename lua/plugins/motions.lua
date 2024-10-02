@@ -23,7 +23,22 @@ return {
 	{
 		'folke/flash.nvim',
 		event = 'VeryLazy',
-		opts = {},
+		opts = {
+			label = {
+				rainbow = {
+					enabled = true,
+				},
+			},
+		},
+		config = function()
+			require('flash').setup {
+				label = { rainbow = { enabled = true } },
+			}
+			vim.cmd 'unmap F'
+			vim.cmd 'unmap f'
+			vim.cmd 'unmap t'
+			vim.cmd 'unmap T'
+		end,
 		-- stylua: ignore
 		keys = {
 			{ "r",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
@@ -31,7 +46,7 @@ return {
 			{ "R",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
 			{ "p",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
 			{ "P",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-			{ "<c-x>", mode = { "n", "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+			{ "<c-x>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
 		},
 	},
 }
