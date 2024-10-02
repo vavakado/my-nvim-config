@@ -39,7 +39,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>uw', '<cmd>set wrap!<CR>', { desc = 'Toggle [W]rap' })
 
 if vim.g.neovide then
-	vim.o.guifont = 'Hurmit Nerd Font Mono:h15'
+	vim.o.guifont = 'Monoid Nerd Font Mono:h12'
 	vim.g.neovide_scale_factor = 1.0
 	local change_scale_factor = function(delta)
 		vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
