@@ -41,6 +41,7 @@ vim.keymap.set('n', '<leader>uw', '<cmd>set wrap!<CR>', { desc = 'Toggle [W]rap'
 if vim.g.neovide then
 	vim.o.guifont = 'Monoid Nerd Font Mono:h12'
 	vim.g.neovide_scale_factor = 1.0
+	vim.g.neovide_cursor_vfx_mode = 'pixiedust'
 	local change_scale_factor = function(delta)
 		vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
 	end

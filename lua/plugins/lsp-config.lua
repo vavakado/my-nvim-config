@@ -1,6 +1,7 @@
 return {
 	{
 		'williamboman/mason.nvim',
+		enabled = false,
 		config = function()
 			require('mason').setup {
 				PATH = 'append',
@@ -9,6 +10,7 @@ return {
 	},
 	{
 		'williamboman/mason-lspconfig.nvim',
+		enabled = false,
 		config = function()
 			require('mason-lspconfig').setup {
 				ensure_installed = {
@@ -40,13 +42,13 @@ return {
 				'docker_compose_language_service',
 				'dockerls',
 				'gdscript',
-				'gleam',
 				'gopls',
 				'html',
 				'jsonls',
 				'marksman',
 				'tailwindcss',
 				'ts_ls',
+				'nixd',
 			}
 
 			for _, lsp in ipairs(servers) do
