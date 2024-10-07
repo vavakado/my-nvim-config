@@ -22,6 +22,8 @@ return {
 			{ '<leader>t_', hidden = true },
 			{ '<leader>u', group = '[U]i' },
 			{ '<leader>u_', hidden = true },
+			{ '<leader>b', group = '[B]uffers' },
+			{ '<leader>b_', hidden = true },
 		}
 	end,
 }
