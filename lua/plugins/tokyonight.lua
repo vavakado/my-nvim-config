@@ -1,7 +1,7 @@
 return {
 	'folke/tokyonight.nvim',
 	name = 'tokyonight',
-	enabled = false,
+	enabled = true,
 	lazy = false,
 	priority = 1000,
 	config = function()
@@ -14,5 +14,6 @@ return {
 			--			end,
 		}
 		vim.cmd.colorscheme 'tokyonight'
+		vim.o.background = 'dark'
 	end,
 }

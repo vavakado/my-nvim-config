@@ -11,8 +11,8 @@ return {
 			-- Color table for highlights
 			-- stylua: ignore
 			local colors = {
-				bg       = '#cad3f5',
-				fg       = '#1e1e2e',
+				bg       = '#1e1e2e',
+				fg       = '#cad3f5',
 				yellow   = '#ECBE7B',
 				cyan     = '#008080',
 				darkblue = '#081633',
@@ -177,7 +177,7 @@ return {
 					return msg
 				end,
 				icon = ' LSP:',
-				color = { fg = '#000000', gui = 'bold' },
+				color = { fg = '#ffffff', gui = 'bold' },
 			}
 
 			-- Add components to right sections
