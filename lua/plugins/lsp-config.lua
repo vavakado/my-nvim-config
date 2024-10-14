@@ -54,14 +54,16 @@ return {
 			for _, lsp in ipairs(servers) do
 				lspconfig[lsp].setup {
 					capabilities = capabilities,
+					on_attach = function()
+						vim.lsp.inlay_hint.enable(true)
+						vim.keymap.set('n', 'J', vim.lsp.buf.hover, { desc = 'Hover' })
+						vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
+						vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
+						vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, { desc = 'Code [A]ctions' })
+						vim.keymap.set({ 'n', 'v' }, '<leader>lr', vim.lsp.buf.rename, { desc = '[R]ename' })
+					end,
 				}
 			end
-
-			vim.lsp.inlay_hint.enable(true)
-			vim.keymap.set('n', 'J', vim.lsp.buf.hover, { desc = 'Hover' })
-			vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = '[G]o to [D]efinition' })
-			vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, { desc = 'Code [A]ctions' })
-			vim.keymap.set({ 'n', 'v' }, '<leader>lr', vim.lsp.buf.rename, { desc = '[R]ename' })
 		end,
 	},
 }

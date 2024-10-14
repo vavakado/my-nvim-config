@@ -11,3 +11,5 @@ end, { silent = true, buffer = bufnr, desc = 'Diagnostics' })
 vim.keymap.set('n', '<leader>lc', function()
 	vim.cmd.RustLsp 'flyCheck'
 end, { silent = true, buffer = bufnr, desc = 'Check' })
+vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
