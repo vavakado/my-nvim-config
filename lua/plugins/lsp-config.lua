@@ -49,6 +49,7 @@ return {
 				'tailwindcss',
 				'ts_ls',
 				'nixd',
+				'zls',
 			}
 
 			for _, lsp in ipairs(servers) do
