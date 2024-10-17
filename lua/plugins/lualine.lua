@@ -188,9 +188,20 @@ return {
 			--		color = { fg = colors.green, gui = 'bold' },
 			--	}
 			ins_right {
-				'require("bidi").buf_get_bidi_mode(vim.api.nvim_win_get_buf(0))',
-				fmt = string.upper,
-				color = { fg = colors.green, gui = 'bold' },
+				function()
+					local ok, pomo = pcall(require, 'pomo')
+					if not ok then
+						return ''
+					end
+
+					local timer = pomo.get_first_to_finish()
+					if timer == nil then
+						return ''
+					end
+
+					return '󰄉 ' .. tostring(timer)
+				end,
+				color = { fg = colors.magenta, gui = 'bold' },
 			}
 
 			ins_right {
