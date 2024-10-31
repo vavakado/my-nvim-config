@@ -36,6 +36,21 @@ return {
 
 			local capabilities = cmp_nvim_lsp.default_capabilities()
 
+			local function on_attach()
+				vim.lsp.inlay_hint.enable(true)
+				vim.keymap.set('n', 'J', vim.lsp.buf.hover, { desc = 'Hover' })
+				vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
+				vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
+				vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, { desc = 'Code [A]ctions' })
+				vim.keymap.set({ 'n', 'v' }, '<leader>lr', vim.lsp.buf.rename, { desc = '[R]ename' })
+			end
+
+			lspconfig.elixirls.setup {
+				capabilities = capabilities,
+				on_attach = on_attach,
+				cmd = { '/home/vavakado/.nix-profile/bin/elixir-ls' },
+			}
+
 			local servers = {
 				'csharp_ls',
 				'cssls',
@@ -46,23 +61,16 @@ return {
 				'html',
 				'jsonls',
 				'marksman',
+				'nixd',
 				'tailwindcss',
 				'ts_ls',
-				'nixd',
 				'zls',
 			}
 
 			for _, lsp in ipairs(servers) do
 				lspconfig[lsp].setup {
 					capabilities = capabilities,
-					on_attach = function()
-						vim.lsp.inlay_hint.enable(true)
-						vim.keymap.set('n', 'J', vim.lsp.buf.hover, { desc = 'Hover' })
-						vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
-						vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
-						vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, { desc = 'Code [A]ctions' })
-						vim.keymap.set({ 'n', 'v' }, '<leader>lr', vim.lsp.buf.rename, { desc = '[R]ename' })
-					end,
+					on_attach = on_attach,
 				}
 			end
 		end,
