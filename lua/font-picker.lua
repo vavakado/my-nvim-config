@@ -1,17 +1,17 @@
-local finders = require 'telescope.finders'
-local pickers = require 'telescope.pickers'
+local finders = require('telescope.finders')
+local pickers = require('telescope.pickers')
 local conf = require('telescope.config').values
-local actions = require 'telescope.actions'
-local action_state = require 'telescope.actions.state'
+local actions = require('telescope.actions')
+local action_state = require('telescope.actions.state')
 
 local function get_fonts()
-	local handle = io.popen 'fc-list : family | sort | uniq'
-	local result = handle:read '*a'
+	local handle = io.popen('fc-list : family | sort | uniq')
+	local result = handle:read('*a')
 	handle:close()
 
 	local fonts = {}
 	local seen = {}
-	for font in result:gmatch '[^\n]+' do
+	for font in result:gmatch('[^\n]+') do
 		local family = font:gsub('^%s*(.-)%s*$', '%1') -- Trim whitespace
 		if not seen[family] then
 			table.insert(fonts, { family, 'h12' })
@@ -36,7 +36,7 @@ local function font_picker(opts)
 	pickers
 		.new(opts, {
 			prompt_title = 'Fonts',
-			finder = finders.new_table {
+			finder = finders.new_table({
 				results = get_fonts(),
 				entry_maker = function(entry)
 					return {
@@ -45,7 +45,7 @@ local function font_picker(opts)
 						ordinal = entry[1],
 					}
 				end,
-			},
+			}),
 			sorter = conf.generic_sorter(opts),
 			attach_mappings = function(prompt_bufnr, map)
 				actions.select_default:replace(function()

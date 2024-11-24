@@ -15,11 +15,11 @@ return {
 	{
 		'hrsh7th/nvim-cmp',
 		config = function()
-			local cmp = require 'cmp'
-			local luasnip = require 'luasnip'
+			local cmp = require('cmp')
+			local luasnip = require('luasnip')
 			require('luasnip.loaders.from_vscode').lazy_load()
 
-			cmp.setup {
+			cmp.setup({
 				snippet = {
 					expand = function(args)
 						require('luasnip').lsp_expand(args.body)
@@ -29,7 +29,7 @@ return {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
 				},
-				mapping = cmp.mapping.preset.insert {
+				mapping = cmp.mapping.preset.insert({
 					['<C-b>'] = cmp.mapping.scroll_docs(-4),
 					['<C-f>'] = cmp.mapping.scroll_docs(4),
 					['<C-Space>'] = cmp.mapping.complete(),
@@ -39,9 +39,9 @@ return {
 							if luasnip.expandable() then
 								luasnip.expand()
 							else
-								cmp.confirm {
+								cmp.confirm({
 									select = true,
-								}
+								})
 							end
 						else
 							fallback()
@@ -67,19 +67,15 @@ return {
 							fallback()
 						end
 					end, { 'i', 's' }),
-				},
+				}),
 				sources = cmp.config.sources({
 					{ name = 'nvim_lsp' },
 					{ name = 'async_path' },
-					{
-						name = 'lazydev',
-						group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-					},
 					{ name = 'luasnip' }, -- For luasnip users.
 				}, {
 					{ name = 'buffer' },
 				}),
-			}
+			})
 		end,
 	},
 }

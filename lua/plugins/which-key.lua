@@ -7,9 +7,9 @@ return {
 	end,
 	config = function()
 		require('which-key').setup()
-		local wk = require 'which-key'
+		local wk = require('which-key')
 
-		wk.add {
+		wk.add({
 			{ '<leader>d', group = '[D]ebugger' },
 			{ '<leader>d_', hidden = true },
 			{ '<leader>f', group = '[F]ind' },
@@ -26,6 +26,6 @@ return {
 			{ '<leader>b_', hidden = true },
 			{ '<leader>p', group = '[P]omodoro' },
 			{ '<leader>p_', hidden = true },
-		}
+		})
 	end,
 }

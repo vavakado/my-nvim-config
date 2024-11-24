@@ -8,9 +8,9 @@ return {
 		-- Optional; default configuration will be used if setup isn't called.
 		config = function()
 			vim.o.background = 'light'
-			require('everforest').setup {
+			require('everforest').setup({
 				italics = true,
-			}
+			})
 			require('everforest').load()
 		end,
 	},

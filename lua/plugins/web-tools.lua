@@ -2,7 +2,7 @@ return {
 	{
 		'litoj/colorizer.nvim',
 		config = function()
-			require('colorizer').setup {
+			require('colorizer').setup({
 				filetypes = { '*' },
 				user_default_options = {
 					RGB = true, -- #RGB hex codes
@@ -12,7 +12,7 @@ return {
 					-- function returning such table (for colorscheme-dependant updates),
 					-- "nvim": for all neovim "Name" codes like Blue ...,
 					-- "tailwind" (_lsp/_both): for tailwind/css-like color names
-					names = 'nvim',
+					names = 'tailwind',
 					RRGGBBAA = true, -- #RRGGBBAA hex codes
 					AARRGGBB = true, -- 0xAARRGGBB hex codes
 					rgb_fn = true, -- CSS rgb() and rgba() functions
@@ -31,13 +31,13 @@ return {
 				},
 				-- all the sub-options of filetypes apply to buftypes
 				buftypes = {},
-			}
+			})
 		end,
 	},
 	{
 		'ray-x/web-tools.nvim',
 		config = function()
-			require('web-tools').setup {
+			require('web-tools').setup({
 				keymaps = {
 					rename = nil, -- by default use same setup of lspconfig
 					repeat_rename = '.', -- . to repeat
@@ -51,7 +51,7 @@ return {
 						html = {},
 					},
 				},
-			}
+			})
 		end,
 	},
 }

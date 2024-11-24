@@ -3,16 +3,16 @@ return {
 		'williamboman/mason.nvim',
 		enabled = false,
 		config = function()
-			require('mason').setup {
+			require('mason').setup({
 				PATH = 'append',
-			}
+			})
 		end,
 	},
 	{
 		'williamboman/mason-lspconfig.nvim',
 		enabled = false,
 		config = function()
-			require('mason-lspconfig').setup {
+			require('mason-lspconfig').setup({
 				ensure_installed = {
 					'cssls',
 					'docker_compose_language_service',
@@ -25,14 +25,14 @@ return {
 					'tailwindcss',
 					'ts_ls',
 				},
-			}
+			})
 		end,
 	},
 	{
 		'neovim/nvim-lspconfig',
 		config = function()
-			local lspconfig = require 'lspconfig'
-			local cmp_nvim_lsp = require 'cmp_nvim_lsp'
+			local lspconfig = require('lspconfig')
+			local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 			local capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -45,11 +45,40 @@ return {
 				vim.keymap.set({ 'n', 'v' }, '<leader>lr', vim.lsp.buf.rename, { desc = '[R]ename' })
 			end
 
-			lspconfig.elixirls.setup {
+			lspconfig.elixirls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 				cmd = { '/home/vavakado/.nix-profile/bin/elixir-ls' },
-			}
+			})
+
+			-- lspconfig.lexical.setup {
+			-- 	capabilities = capabilities,
+			-- 	on_attach = on_attach,
+			-- 	cmd = { '/home/vavakado/.nix-profile/bin/lexical' },
+			-- }
+
+			lspconfig.tailwindcss.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { 'html', 'elixir', 'heex' },
+				init_options = {
+					userLanguages = {
+						elixir = 'phoenix-heex',
+						heex = 'phoenix-heex',
+					},
+				},
+				settings = {
+					tailwindCSS = {
+						experimental = {
+							classRegex = {
+								'class="([^"]*)"',
+								'class: "([^"]*)"',
+								'~H""".*class="([^"]*)".*"""',
+							},
+						},
+					},
+				},
+			})
 
 			local servers = {
 				'csharp_ls',
@@ -62,16 +91,16 @@ return {
 				'jsonls',
 				'marksman',
 				'nixd',
-				'tailwindcss',
+				'svelte',
 				'ts_ls',
 				'zls',
 			}
 
 			for _, lsp in ipairs(servers) do
-				lspconfig[lsp].setup {
+				lspconfig[lsp].setup({
 					capabilities = capabilities,
 					on_attach = on_attach,
-				}
+				})
 			end
 		end,
 	},

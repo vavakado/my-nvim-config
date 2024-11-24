@@ -39,7 +39,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>uw', '<cmd>set wrap!<CR>', { desc = 'Toggle [W]rap' })
 
 if vim.g.neovide then
-	vim.o.guifont = 'Monoid Nerd Font Mono:h12'
+	vim.o.guifont = 'Iosevka Nerd Font Mono:h16'
 	vim.g.neovide_scale_factor = 1.0
 	vim.g.neovide_cursor_vfx_mode = 'pixiedust'
 	local change_scale_factor = function(delta)
@@ -88,20 +88,31 @@ end
 -- vim.keymap.set('', 'O', 'P')
 -- vim.keymap.set('', 'K', 'N')
 
-vim.keymap.set('', 'n', 'j')
-vim.keymap.set('', 'e', 'k')
-vim.keymap.set('', 'i', 'l')
-vim.keymap.set('', 'j', 'e')
-vim.keymap.set('', 'k', 'n')
-vim.keymap.set('', 'l', 'i')
-
-vim.keymap.set('', 'N', 'J')
-vim.keymap.set('', 'E', 'K')
-vim.keymap.set('', 'I', 'L')
-vim.keymap.set('', 'J', 'E')
-vim.keymap.set('', 'K', 'N')
-vim.keymap.set('', 'L', 'I')
+-- vim.keymap.set('', 'n', 'j')
+-- vim.keymap.set('', 'e', 'k')
+-- vim.keymap.set('', 'i', 'l')
+-- vim.keymap.set('', 'j', 'e')
+-- vim.keymap.set('', 'k', 'n')
+-- vim.keymap.set('', 'l', 'i')
+--
+-- vim.keymap.set('', 'N', 'J')
+-- vim.keymap.set('', 'E', 'K')
+-- vim.keymap.set('', 'I', 'L')
+-- vim.keymap.set('', 'J', 'E')
+-- vim.keymap.set('', 'K', 'N')
+-- vim.keymap.set('', 'L', 'I')
 
 vim.o.langmap =
 	'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
 vim.o.langremap = true
+
+-- Create an augroup for highlighting yanked text
+local highlight_yank_group = vim.api.nvim_create_augroup('highlight_yank', { clear = true })
+
+-- Create an autocommand for the TextYankPost event
+vim.api.nvim_create_autocmd('TextYankPost', {
+	group = highlight_yank_group,
+	callback = function()
+		vim.highlight.on_yank({ higroup = 'Visual', timeout = 150 })
+	end,
+})

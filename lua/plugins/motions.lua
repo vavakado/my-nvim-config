@@ -31,13 +31,13 @@ return {
 			},
 		},
 		config = function()
-			require('flash').setup {
+			require('flash').setup({
 				label = { rainbow = { enabled = true } },
-			}
-			vim.cmd 'unmap F'
-			vim.cmd 'unmap f'
-			vim.cmd 'unmap t'
-			vim.cmd 'unmap T'
+			})
+			vim.cmd('unmap F')
+			vim.cmd('unmap f')
+			vim.cmd('unmap t')
+			vim.cmd('unmap T')
 		end,
 		-- stylua: ignore
 		keys = {
