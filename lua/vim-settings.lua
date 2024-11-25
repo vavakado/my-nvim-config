@@ -37,6 +37,18 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 vim.keymap.set('n', '<leader>uw', '<cmd>set wrap!<CR>', { desc = 'Toggle [W]rap' })
+vim.keymap.set('n', '<leader>ur', '<cmd>set rnu!<CR>', { desc = 'Toggle [R]elative [N]umbers' })
+vim.keymap.set('n', '<leader>un', '<cmd>set nu!<CR>', { desc = 'Toggle [N]umbers' })
+
+local function toggle_inlay_hints()
+	if vim.lsp.inlay_hint.is_enabled() then
+		vim.lsp.inlay_hint.enable(false)
+	else
+		vim.lsp.inlay_hint.enable(true)
+	end
+end
+
+vim.keymap.set('n', '<leader>uh', toggle_inlay_hints, { desc = 'Toggle [I]nline [H]ints' })
 
 if vim.g.neovide then
 	vim.o.guifont = 'Iosevka Nerd Font Mono:h16'
@@ -46,10 +58,10 @@ if vim.g.neovide then
 		vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
 	end
 	vim.keymap.set('n', '<C-=>', function()
-		change_scale_factor(1.05)
+		change_scale_factor(1.02)
 	end)
 	vim.keymap.set('n', '<C-->', function()
-		change_scale_factor(1 / 1.05)
+		change_scale_factor(1 / 1.02)
 	end)
 end
 
