@@ -174,6 +174,14 @@ return {
 				color = { fg = '#ffffff', gui = 'bold' },
 			})
 
+			-- Insert mid section. You can make any number of sections in neovim :)
+			-- for lualine it's any number greater then 2
+			ins_left({
+				function()
+					return '%='
+				end,
+			})
+
 			-- Add components to right sections
 			ins_right({
 				function()
