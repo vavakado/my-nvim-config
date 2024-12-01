@@ -9,6 +9,7 @@ return {
 			vim.keymap.set('n', '<Leader>fw', builtin.live_grep, { desc = '[F]ind [W]ord' })
 			vim.keymap.set('n', '<Leader>fa', '<cmd>cd ~/.config/nvim/<CR><cmd>Telescope find_files<CR>', { desc = '[F]ind config' })
 			vim.keymap.set('n', '<Leader>fb', builtin.buffers, { desc = '[F]ind [B]uffers' })
+			vim.keymap.set('n', '<Leader>uc', builtin.colorscheme, { desc = '[F]ind [C]olorschemes' })
 		end,
 	},
 	-- {

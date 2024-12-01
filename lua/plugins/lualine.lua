@@ -3,9 +3,6 @@ return {
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function()
-			-- Eviline config for lualine
-			-- Author: shadmansaleh
-			-- Credit: glepnir
 			local lualine = require('lualine')
 
 			-- Color table for highlights
