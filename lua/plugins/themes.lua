@@ -5,7 +5,7 @@ return {
 		priority = 1000,
 		enabled = true,
 		config = function()
-			vim.cmd.colorscheme('oxocarbon')
+			-- vim.cmd.colorscheme('oxocarbon')
 		end,
 	},
 	{
@@ -48,8 +48,8 @@ return {
 				--				colors.error = '#ff0000'
 				--			end,
 			})
-			vim.cmd.colorscheme('tokyonight')
-			vim.o.background = 'dark'
+			-- vim.cmd.colorscheme('tokyonight')
+			-- vim.o.background = 'dark'
 		end,
 	},
 	{
@@ -64,5 +64,27 @@ return {
 		-- init = function()
 		-- 	vim.cmd('colorscheme poimandres')
 		-- end,
+	},
+	{
+		'xero/evangelion.nvim',
+		lazy = false,
+		priority = 1000,
+		-- opts = {
+		-- 	overrides = {
+		-- 		keyword = { fg = '#00ff00', bg = '#222222', undercurl = true },
+		-- 		['@boolean'] = { link = 'Special' },
+		-- 	},
+		-- },
+		init = function()
+			vim.cmd.colorscheme('evangelion')
+		end,
+	},
+	{
+		'xero/miasma.nvim',
+		branch = 'lua',
+		lazy = false,
+		config = function()
+			-- vim.cmd.colorscheme('miasma')
+		end,
 	},
 }

@@ -51,11 +51,11 @@ return {
 				cmd = { '/home/vavakado/.nix-profile/bin/elixir-ls' },
 			})
 
-			-- lspconfig.lexical.setup {
+			-- lspconfig.lexical.setup({
 			-- 	capabilities = capabilities,
 			-- 	on_attach = on_attach,
 			-- 	cmd = { '/home/vavakado/.nix-profile/bin/lexical' },
-			-- }
+			-- })
 
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
