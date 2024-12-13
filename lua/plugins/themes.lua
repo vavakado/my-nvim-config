@@ -3,40 +3,40 @@ return {
 		'nyoom-engineering/oxocarbon.nvim',
 		lazy = false,
 		priority = 1000,
-		enabled = true,
-		config = function()
-			-- vim.cmd.colorscheme('oxocarbon')
-		end,
+		-- enabled = true,
+		-- config = function()
+		-- vim.cmd.colorscheme('oxocarbon')
+		-- end,
 	},
 	{
 		'catppuccin/nvim',
 		name = 'catppuccin',
 		lazy = false,
-		enabled = false,
+		-- enabled = false,
 		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme('catppuccin')
-		end,
+		-- config = function()
+		-- 	vim.cmd.colorscheme('catppuccin')
+		-- end,
 	},
 	{
 		'neanias/everforest-nvim',
 		version = false,
 		lazy = false,
-		enabled = false,
+		-- enabled = false,
 		priority = 1000, -- make sure to load this before all the other start plugins
 		-- Optional; default configuration will be used if setup isn't called.
 		config = function()
-			vim.o.background = 'light'
+			-- vim.o.background = 'light'
 			require('everforest').setup({
 				italics = true,
 			})
-			require('everforest').load()
+			-- require('everforest').load()
 		end,
 	},
 	{
 		'folke/tokyonight.nvim',
 		name = 'tokyonight',
-		enabled = false,
+		-- enabled = false,
 		lazy = false,
 		priority = 1000,
 		config = function()

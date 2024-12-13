@@ -80,6 +80,18 @@ return {
 				},
 			})
 
+			lspconfig.html.setup({
+				filetypes = { 'html', 'heex' },
+				init_options = {
+					configurationSection = { 'html', 'css', 'javascript' },
+					embeddedLanguages = {
+						css = true,
+						javascript = true,
+					},
+					provideFormatter = true,
+				},
+			})
+
 			local servers = {
 				'csharp_ls',
 				'cssls',
@@ -87,7 +99,6 @@ return {
 				'dockerls',
 				'gdscript',
 				'gopls',
-				'html',
 				'jsonls',
 				'marksman',
 				'nixd',

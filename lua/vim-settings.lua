@@ -128,3 +128,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 		vim.highlight.on_yank({ higroup = 'Visual', timeout = 150 })
 	end,
 })
+
+local function closeAllBuffersButCurrentOne()
+	local current_buf = vim.api.nvim_get_current_buf()
+	local all_bufs = vim.api.nvim_list_bufs()
+
+	for _, buf in ipairs(all_bufs) do
+		if buf ~= current_buf then
+			vim.api.nvim_buf_delete(buf, { force = true })
+		end
+	end
+end
+
+vim.keymap.set('n', '<leader>bx', closeAllBuffersButCurrentOne, { desc = 'Close all buffers but current one' })
