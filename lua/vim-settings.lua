@@ -141,3 +141,5 @@ local function closeAllBuffersButCurrentOne()
 end
 
 vim.keymap.set('n', '<leader>bx', closeAllBuffersButCurrentOne, { desc = 'Close all buffers but current one' })
+
+vim.api.nvim_create_user_command('W', 'w', {}) -- i keep mistyping this

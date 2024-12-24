@@ -60,11 +60,12 @@ return {
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
-				filetypes = { 'html', 'elixir', 'heex' },
+				filetypes = { 'html', 'elixir', 'heex', 'svelte' },
 				init_options = {
 					userLanguages = {
 						elixir = 'phoenix-heex',
 						heex = 'phoenix-heex',
+						svelte = 'html',
 					},
 				},
 				settings = {
@@ -93,6 +94,7 @@ return {
 			})
 
 			local servers = {
+				'clangd',
 				'csharp_ls',
 				'cssls',
 				'docker_compose_language_service',
