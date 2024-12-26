@@ -1,7 +1,7 @@
 return {
 	'petertriho/nvim-scrollbar',
 	event = 'VeryLazy',
-	enabled = false,
+	enabled = true,
 	config = function()
 		local scrollbar = require('scrollbar')
 		scrollbar.setup({

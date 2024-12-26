@@ -19,6 +19,15 @@ return {
 			local luasnip = require('luasnip')
 			require('luasnip.loaders.from_vscode').lazy_load()
 
+			cmp.setup.filetype('lisp', {
+				sources = {
+					{ name = 'nvlime' },
+					{ name = 'async_path' },
+					{ name = 'luasnip' }, -- For luasnip users.
+					{ name = 'buffer' },
+				},
+			})
+
 			cmp.setup({
 				snippet = {
 					expand = function(args)
