@@ -29,6 +29,7 @@
   "mini.cursorword": { "branch": "main", "commit": "7d1b38a17834acbbc4feff8e42aedc4ed0c6ff06" },
   "mini.icons": { "branch": "main", "commit": "44c0160526f7ae17ca8e8eab9ab235d047fcf7a6" },
   "moonfly": { "branch": "master", "commit": "2e9b34d1b2b3b65a78679b8e7bd856cb769f28a8" },
+  "multiple-cursors.nvim": { "branch": "main", "commit": "2f5e786c43aa9c0fc34b295cfcc9bfbacef8e926" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "a77af2e764c5ed4038d27d1c463fa49cd4794e07" },
   "neogit": { "branch": "master", "commit": "bd0c2d3429eac3e70dae42cfe913b44242da7132" },
   "neorg": { "branch": "main", "commit": "81ee90cb2d72ac43bfadb7dd276646f34c8f85be" },
