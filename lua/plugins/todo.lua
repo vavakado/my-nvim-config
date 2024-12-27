@@ -3,6 +3,6 @@ return {
 	dependencies = { 'nvim-lua/plenary.nvim' },
 	config = function()
 		require('todo-comments').setup()
-		vim.keymap.set('n', '<leader>fc', '<cmd>TodoTelescope<CR>', { desc = '[F]ind [C]omments' })
+		vim.keymap.set('n', '<leader>fc', '<cmd>TodoTelescope<CR>', { desc = 'Find Comments' })
 	end,
 }

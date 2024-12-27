@@ -10,12 +10,12 @@ return {
 		neogit.setup({
 			graph_style = 'unicode',
 		})
-		vim.keymap.set('n', '<Leader>gg', neogit.open, { desc = '[G]it [G]it' })
-		vim.keymap.set('n', '<Leader>gc', neogit.action('commit', 'commit', { '--all' }), { desc = '[G]it [C]ommit' })
-		vim.keymap.set('n', '<Leader>gp', neogit.action('pull', 'from_pushremote', {}), { desc = '[G]it [p]ull' })
-		vim.keymap.set('n', '<Leader>gP', neogit.action('push', 'to_upstream', {}), { desc = '[G]it [P]ush' })
-		vim.keymap.set('n', '<Leader>gs', neogit.action('stash', 'both', {}), { desc = '[G]it [S]tash' })
-		vim.keymap.set('n', '<Leader>gm', neogit.action('merge', 'merge', {}), { desc = '[G]it [M]erge' })
-		vim.keymap.set('n', '<Leader>gr', neogit.action('rebase', 'interactively', {}), { desc = '[G]it [R]ebase' })
+		vim.keymap.set('n', '<Leader>gg', neogit.open, { desc = 'Git Git' })
+		vim.keymap.set('n', '<Leader>gc', neogit.action('commit', 'commit', { '--all' }), { desc = 'Git Commit' })
+		vim.keymap.set('n', '<Leader>gp', neogit.action('pull', 'from_pushremote', {}), { desc = 'Git pull' })
+		vim.keymap.set('n', '<Leader>gP', neogit.action('push', 'to_upstream', {}), { desc = 'Git Push' })
+		vim.keymap.set('n', '<Leader>gs', neogit.action('stash', 'both', {}), { desc = 'Git Stash' })
+		vim.keymap.set('n', '<Leader>gm', neogit.action('merge', 'merge', {}), { desc = 'Git Merge' })
+		vim.keymap.set('n', '<Leader>gr', neogit.action('rebase', 'interactively', {}), { desc = 'Git Rebase' })
 	end,
 }

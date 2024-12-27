@@ -4,12 +4,12 @@ return {
 		version = '0.1.x',
 		config = function()
 			local builtin = require('telescope.builtin')
-			vim.keymap.set('n', '<Leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
-			vim.keymap.set('n', '<Leader>fp', require('telescope').extensions.projects.projects, { desc = '[F]ind [P]rojects' })
-			vim.keymap.set('n', '<Leader>fw', builtin.live_grep, { desc = '[F]ind [W]ord' })
-			vim.keymap.set('n', '<Leader>fa', '<cmd>cd ~/.config/nvim/<CR><cmd>Telescope find_files<CR>', { desc = '[F]ind config' })
-			vim.keymap.set('n', '<Leader>fb', builtin.buffers, { desc = '[F]ind [B]uffers' })
-			vim.keymap.set('n', '<Leader>uc', builtin.colorscheme, { desc = '[F]ind [C]olorschemes' })
+			vim.keymap.set('n', '<Leader>ff', builtin.find_files, { desc = 'Find Files' })
+			vim.keymap.set('n', '<Leader>fp', require('telescope').extensions.projects.projects, { desc = 'Find Projects' })
+			vim.keymap.set('n', '<Leader>fw', builtin.live_grep, { desc = 'Find Word' })
+			vim.keymap.set('n', '<Leader>fa', '<cmd>cd ~/.config/nvim/<CR><cmd>Telescope find_files<CR>', { desc = 'Find config' })
+			vim.keymap.set('n', '<Leader>fb', builtin.buffers, { desc = 'Find Buffers' })
+			vim.keymap.set('n', '<Leader>uc', builtin.colorscheme, { desc = 'Find Colorschemes' })
 		end,
 	},
 	-- {
@@ -56,7 +56,7 @@ return {
 				},
 				-- require('telescope').load_extension "zoxide",
 			})
-			vim.keymap.set('n', '<Leader>fd', ':Telescope zoxide list<CR>', { desc = '[F]ind [D]irectories' })
+			vim.keymap.set('n', '<Leader>fd', ':Telescope zoxide list<CR>', { desc = 'Find Directories' })
 		end,
 	},
 }

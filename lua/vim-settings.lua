@@ -36,9 +36,9 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set('n', '<leader>uw', '<cmd>set wrap!<CR>', { desc = 'Toggle [W]rap' })
-vim.keymap.set('n', '<leader>ur', '<cmd>set rnu!<CR>', { desc = 'Toggle [R]elative [N]umbers' })
-vim.keymap.set('n', '<leader>un', '<cmd>set nu!<CR>', { desc = 'Toggle [N]umbers' })
+vim.keymap.set('n', '<leader>uw', '<cmd>set wrap!<CR>', { desc = 'Toggle Wrap' })
+vim.keymap.set('n', '<leader>ur', '<cmd>set rnu!<CR>', { desc = 'Toggle Relative Numbers' })
+vim.keymap.set('n', '<leader>un', '<cmd>set nu!<CR>', { desc = 'Toggle Line Numbers' })
 vim.keymap.set('n', '<leader>q', '<cmd>qa<CR>', { noremap = true, silent = true, desc = 'Quit' })
 
 local function toggle_inlay_hints()
@@ -49,7 +49,7 @@ local function toggle_inlay_hints()
 	end
 end
 
-vim.keymap.set('n', '<leader>uh', toggle_inlay_hints, { desc = 'Toggle [I]nline [H]ints' })
+vim.keymap.set('n', '<leader>uh', toggle_inlay_hints, { desc = 'Toggle Inline Hints' })
 
 vim.opt.breakindent = true
 vim.opt.showbreak = '↪ '

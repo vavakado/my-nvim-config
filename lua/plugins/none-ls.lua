@@ -26,6 +26,6 @@ return {
 				end
 			end,
 		})
-		vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = '[F]ormat' })
+		vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = 'Format' })
 	end,
 }

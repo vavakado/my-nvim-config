@@ -7,7 +7,7 @@ return {
 		end,
 		init = function()
 			vim.g.mkdp_filetypes = { 'markdown' }
-			vim.keymap.set('n', '<leader>lp', '<cmd>MarkdownPreviewToggle<CR>', { desc = '[P]review file' })
+			vim.keymap.set('n', '<leader>lp', '<cmd>MarkdownPreviewToggle<CR>', { desc = 'Preview file' })
 		end,
 		ft = { 'markdown' },
 	},
