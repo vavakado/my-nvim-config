@@ -39,6 +39,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>uw', '<cmd>set wrap!<CR>', { desc = 'Toggle [W]rap' })
 vim.keymap.set('n', '<leader>ur', '<cmd>set rnu!<CR>', { desc = 'Toggle [R]elative [N]umbers' })
 vim.keymap.set('n', '<leader>un', '<cmd>set nu!<CR>', { desc = 'Toggle [N]umbers' })
+vim.keymap.set('n', '<leader>q', '<cmd>qa<CR>', { noremap = true, silent = true, desc = 'Quit' })
 
 local function toggle_inlay_hints()
 	if vim.lsp.inlay_hint.is_enabled() then
@@ -49,6 +50,17 @@ local function toggle_inlay_hints()
 end
 
 vim.keymap.set('n', '<leader>uh', toggle_inlay_hints, { desc = 'Toggle [I]nline [H]ints' })
+
+vim.opt.breakindent = true
+vim.opt.showbreak = '↪ '
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = { 'latex', 'markdown' },
+	callback = function()
+		vim.opt_local.wrap = true
+		vim.opt_local.linebreak = true
+	end,
+})
 
 if vim.g.neovide then
 	vim.o.guifont = 'Iosevka Nerd Font Mono:h16'
