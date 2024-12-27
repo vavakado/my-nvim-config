@@ -11,6 +11,28 @@ return {
 			vim.keymap.set('n', '<Leader>fb', builtin.buffers, { desc = 'Find Buffers' })
 			vim.keymap.set('n', '<Leader>uc', builtin.colorscheme, { desc = 'Find Colorschemes' })
 		end,
+		opts = {
+			extensions = {
+				file_browser = {
+					theme = 'dropdown',
+					-- other options
+				},
+			},
+		},
+	},
+	{
+		'dawsers/telescope-locate.nvim',
+		config = function()
+			require('telescope').load_extension('locate')
+			-- no keybind cuz it doesn't support dynamic search
+		end,
+	},
+	{
+		'nvim-telescope/telescope-file-browser.nvim',
+		config = function()
+			require('telescope').load_extension('file_browser')
+			vim.keymap.set('n', '<Leader>fo', require('telescope').extensions.file_browser.file_browser, { desc = 'Find Files Dropdown' })
+		end,
 	},
 	-- {
 	-- 	'nvim-telescope/telescope-fzf-native.nvim',

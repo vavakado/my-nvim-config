@@ -62,6 +62,8 @@
   "snacks.nvim": { "branch": "main", "commit": "4ef74f09ff62d06f2e9ac88fac9919b6b3210507" },
   "sqlite.nvim": { "branch": "master", "commit": "53115a1a73972ce75c9a371a682d27286be9e81e" },
   "supermaven-nvim": { "branch": "main", "commit": "07d20fce48a5629686aefb0a7cd4b25e33947d50" },
+  "telescope-file-browser.nvim": { "branch": "master", "commit": "626998e5c1b71c130d8bc6cf7abb6709b98287bb" },
+  "telescope-locate.nvim": { "branch": "main", "commit": "2ce54b37f9e30ab243c7d22f431ea4f6d888d8a7" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
   "telescope-zoxide": { "branch": "main", "commit": "54bfe630bad08dc9891ec78c7cf8db38dd725c97" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
