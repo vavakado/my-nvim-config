@@ -60,4 +60,7 @@ local function font_picker(opts)
 end
 
 vim.api.nvim_create_user_command('TelescopeFontPicker', font_picker, {})
-vim.keymap.set('n', '<leader>uf', font_picker, { desc = 'Choose Font' })
+
+if vim.g.neovide then
+	vim.keymap.set('n', '<leader>uf', font_picker, { desc = 'Choose Font' })
+end

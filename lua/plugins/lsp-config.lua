@@ -91,6 +91,13 @@ return {
 					},
 					provideFormatter = true,
 				},
+				settings = {
+					html = {
+						format = {
+							unformatted = { 'pre', 'code', 'textarea' },
+						},
+					},
+				},
 			})
 
 			local servers = {
