@@ -1,13 +1,13 @@
 return {
-	-- {
-	-- 	'nyoom-engineering/oxocarbon.nvim',
-	-- 	lazy = false,
-	-- 	-- priority = 1000,
-	-- 	-- enabled = true,
-	-- 	-- config = function()
-	-- 	-- vim.cmd.colorscheme('oxocarbon')
-	-- 	-- end,
-	-- },
+	{
+		'nyoom-engineering/oxocarbon.nvim',
+		lazy = false,
+		priority = 1000,
+		enabled = true,
+		config = function()
+			vim.cmd.colorscheme('oxocarbon')
+		end,
+	},
 	{
 		'catppuccin/nvim',
 		name = 'catppuccin',
@@ -87,13 +87,13 @@ return {
 			-- vim.cmd.colorscheme('miasma')
 		end,
 	},
-	{
-		'bluz71/vim-moonfly-colors',
-		name = 'moonfly',
-		lazy = false,
-		priority = 1000,
-		init = function()
-			vim.cmd.colorscheme('moonfly')
-		end,
-	},
+	-- {
+	-- 	'bluz71/vim-moonfly-colors',
+	-- 	name = 'moonfly',
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	init = function()
+	-- 		vim.cmd.colorscheme('moonfly')
+	-- 	end,
+	-- },
 }
