@@ -5,7 +5,8 @@ return {
 		local config = require('nvim-treesitter.configs')
 		config.setup({
 			auto_install = false,
-			ensure_installed = { 'lua', 'vim', 'c', 'vimdoc', 'go' },
+			ensure_installed = 'all',
+			ignore_install = { 'org', 'norg' },
 			highlight = { enable = true },
 			indent = { enable = true },
 		})

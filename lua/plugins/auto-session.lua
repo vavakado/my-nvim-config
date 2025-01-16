@@ -6,7 +6,7 @@ return {
 	---@module "auto-session"
 	---@type AutoSession.Config
 	opts = {
-		suppressed_dirs = { '~/', '~/Downloads', '/' },
+		suppressed_dirs = { '~/', '~/Downloads', '/', '~/Development/projects/personal/vrp/shanti/backend/' },
 		-- log_level = 'debug',
 	},
 }

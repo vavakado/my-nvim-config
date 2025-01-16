@@ -2,11 +2,11 @@ return {
 	{
 		'nyoom-engineering/oxocarbon.nvim',
 		lazy = false,
-		priority = 1000,
+		-- priority = 1000,
 		enabled = true,
-		config = function()
-			vim.cmd.colorscheme('oxocarbon')
-		end,
+		-- config = function()
+		-- vim.cmd.colorscheme('oxocarbon')
+		-- end,
 	},
 	{
 		'catppuccin/nvim',
@@ -23,35 +23,35 @@ return {
 		version = false,
 		lazy = false,
 		-- enabled = false,
-		-- priority = 1000, -- make sure to load this before all the other start plugins
+		priority = 1000, -- make sure to load this before all the other start plugins
 		-- Optional; default configuration will be used if setup isn't called.
 		config = function()
-			-- vim.o.background = 'light'
+			vim.o.background = 'dark'
 			require('everforest').setup({
-				italics = true,
+				-- italics = true,
 			})
-			-- require('everforest').load()
+			require('everforest').load()
 		end,
 	},
-	-- {
-	-- 	'folke/tokyonight.nvim',
-	-- 	name = 'tokyonight',
-	-- 	-- enabled = false,
-	-- 	lazy = false,
-	-- 	-- priority = 1000,
-	-- 	config = function()
-	-- 		require('tokyonight').setup({
-	-- 			style = 'night',
-	-- 			--transparent = true,
-	-- 			--			on_colors = function(colors)
-	-- 			--				colors.hint = colors.orange
-	-- 			--				colors.error = '#ff0000'
-	-- 			--			end,
-	-- 		})
-	-- 		-- vim.cmd.colorscheme('tokyonight')
-	-- 		-- vim.o.background = 'dark'
-	-- 	end,
-	-- },
+	{
+		'folke/tokyonight.nvim',
+		name = 'tokyonight',
+		-- enabled = false,
+		-- lazy = false,
+		-- priority = 1000,
+		config = function()
+			require('tokyonight').setup({
+				style = 'night',
+				-- transparent = true,
+				--			on_colors = function(colors)
+				--				colors.hint = colors.orange
+				--				colors.error = '#ff0000'
+				--			end,
+			})
+			-- vim.cmd.colorscheme('tokyonight')
+			-- vim.o.background = 'dark'
+		end,
+	},
 	{
 		'rebelot/kanagawa.nvim',
 	},

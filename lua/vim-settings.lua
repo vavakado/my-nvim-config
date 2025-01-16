@@ -77,55 +77,6 @@ if vim.g.neovide then
 	end)
 end
 
--- vim.keymap.set('', 'f', 'e')
--- vim.keymap.set('', 'p', 'r')
--- vim.keymap.set('', 'g', 't')
--- vim.keymap.set('', 'j', 'y')
--- vim.keymap.set('', 'l', 'u')
--- vim.keymap.set('', 'u', 'i')
--- vim.keymap.set('', 'y', 'o')
--- vim.keymap.set('', 'r', 's')
--- vim.keymap.set('', 's', 'd')
--- vim.keymap.set('', 't', 'f')
--- vim.keymap.set('', 'd', 'g')
--- vim.keymap.set('', 'h', 'h')
--- vim.keymap.set('', 'n', 'j')
--- vim.keymap.set('', 'e', 'k')
--- vim.keymap.set('', 'i', 'l')
--- vim.keymap.set('', 'o', 'p')
--- vim.keymap.set('', 'k', 'n')
--- vim.keymap.set('', 'F', 'E')
--- vim.keymap.set('', 'P', 'R')
--- vim.keymap.set('', 'G', 'T')
--- vim.keymap.set('', 'J', 'Y')
--- vim.keymap.set('', 'L', 'U')
--- vim.keymap.set('', 'U', 'I')
--- vim.keymap.set('', 'Y', 'O')
--- vim.keymap.set('', 'R', 'S')
--- vim.keymap.set('', 'S', 'D')
--- vim.keymap.set('', 'T', 'F')
--- vim.keymap.set('', 'D', 'G')
--- vim.keymap.set('', 'H', 'H')
--- vim.keymap.set('', 'N', 'J')
--- vim.keymap.set('', 'E', 'K')
--- vim.keymap.set('', 'I', 'L')
--- vim.keymap.set('', 'O', 'P')
--- vim.keymap.set('', 'K', 'N')
-
--- vim.keymap.set('', 'n', 'j')
--- vim.keymap.set('', 'e', 'k')
--- vim.keymap.set('', 'i', 'l')
--- vim.keymap.set('', 'j', 'e')
--- vim.keymap.set('', 'k', 'n')
--- vim.keymap.set('', 'l', 'i')
---
--- vim.keymap.set('', 'N', 'J')
--- vim.keymap.set('', 'E', 'K')
--- vim.keymap.set('', 'I', 'L')
--- vim.keymap.set('', 'J', 'E')
--- vim.keymap.set('', 'K', 'N')
--- vim.keymap.set('', 'L', 'I')
-
 vim.o.langmap =
 	'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
 vim.o.langremap = true
@@ -155,3 +106,14 @@ end
 vim.keymap.set('n', '<leader>bx', closeAllBuffersButCurrentOne, { desc = 'Close all buffers but current one' })
 
 vim.api.nvim_create_user_command('W', 'w', {}) -- i keep mistyping this
+
+vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
+-- vim.api.nvim_set_keymap('', '<space><space>', [[:]], { noremap = true }) -- maybe later?? idk
+
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = 'nc'
+
+-- vim.o.foldcolumn = 'auto'
+-- vim.o.foldlevel = 99
+-- vim.o.foldlevelstart = 99
+vim.o.foldenable = false

@@ -6,12 +6,26 @@ return {
 		null_ls.setup({
 			sources = {
 				null_ls.builtins.diagnostics.credo,
+
 				null_ls.builtins.formatting.mix,
 				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.nixfmt,
 				null_ls.builtins.formatting.gdformat,
 				null_ls.builtins.formatting.gofmt,
+
+				null_ls.builtins.formatting.sqlfluff.with({
+					extra_args = { '--dialect', 'postgres' }, -- change to your dialect
+				}),
+				null_ls.builtins.diagnostics.sqlfluff.with({
+					extra_args = { '--dialect', 'postgres' }, -- change to your dialect
+				}),
+
+				-- pypthon
+				null_ls.builtins.diagnostics.mypy,
+				null_ls.builtins.formatting.isort,
+				null_ls.builtins.diagnostics.pylint,
+				null_ls.builtins.formatting.black,
 			},
 			on_attach = function(client, bufnr)
 				if client.supports_method('textDocument/formatting') then

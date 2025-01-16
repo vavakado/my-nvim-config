@@ -26,6 +26,8 @@ return {
 			{ '<leader>b_', hidden = true },
 			{ '<leader>p', group = 'Pomodoro' },
 			{ '<leader>p_', hidden = true },
+			{ '<leader>o', group = 'Org' },
+			{ '<leader>o_', hidden = true },
 		})
 	end,
 }

@@ -25,6 +25,7 @@ return {
 					{ name = 'async_path' },
 					{ name = 'luasnip' }, -- For luasnip users.
 					{ name = 'buffer' },
+					{ name = 'orgmode' },
 				},
 			})
 

@@ -7,6 +7,11 @@ return {
 				clear_suggestion = '<C-]>',
 				accept_word = '<C-j>',
 			},
+			ignore_filetypes = {
+				'org',
+				'markdown',
+				'text',
+			},
 		})
 	end,
 }

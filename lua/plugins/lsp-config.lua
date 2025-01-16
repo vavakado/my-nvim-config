@@ -111,6 +111,8 @@ return {
 				'jsonls',
 				'marksman',
 				'nixd',
+				'pylsp',
+				'sqlls',
 				'svelte',
 				'ts_ls',
 				'zls',
