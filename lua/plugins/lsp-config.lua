@@ -36,13 +36,18 @@ return {
 
 			local capabilities = cmp_nvim_lsp.default_capabilities()
 
-			local function on_attach()
+			local function on_attach(client)
 				vim.lsp.inlay_hint.enable(true)
 				vim.keymap.set('n', 'J', vim.lsp.buf.hover, { desc = 'Hover' })
 				vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
 				vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
 				vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, { desc = 'Code Actions' })
 				vim.keymap.set({ 'n', 'v' }, '<leader>lr', vim.lsp.buf.rename, { desc = 'Rename' })
+
+				if client.server_capabilities.colorProvider then
+					-- Attach document colour support
+					require('document-color').buf_attach(bufnr)
+				end
 			end
 
 			lspconfig.elixirls.setup({
@@ -56,6 +61,8 @@ return {
 			-- 	on_attach = on_attach,
 			-- 	cmd = { '/home/vavakado/.nix-profile/bin/lexical' },
 			-- })
+			--
+			--
 
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
@@ -107,6 +114,7 @@ return {
 				'docker_compose_language_service',
 				'dockerls',
 				'gdscript',
+				'glsl_analyzer',
 				'gopls',
 				'jsonls',
 				'marksman',
