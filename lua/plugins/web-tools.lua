@@ -63,4 +63,9 @@ return {
 			})
 		end,
 	},
+	{
+		'izocha/graphviz.nvim',
+		ft = { 'dot' },
+		config = true,
+	},
 }
