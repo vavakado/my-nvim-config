@@ -107,6 +107,17 @@ return {
 				},
 			})
 
+			lspconfig.hls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				settings = {
+					haskell = {
+						cabalFormattingProvider = 'cabalfmt',
+						formattingProvider = 'fourmolu',
+					},
+				},
+			})
+
 			local servers = {
 				'clangd',
 				'csharp_ls',

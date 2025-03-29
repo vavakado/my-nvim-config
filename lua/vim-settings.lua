@@ -119,3 +119,23 @@ vim.opt.concealcursor = 'nc'
 vim.o.foldenable = false
 
 vim.opt.numberwidth = 3
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'haskell',
+	callback = function()
+		vim.opt_local.expandtab = true -- Use spaces instead of tabs
+		vim.opt_local.shiftwidth = 2 -- Number of spaces for indentation
+		vim.opt_local.softtabstop = 2 -- Number of spaces per tab press
+		vim.opt_local.tabstop = 2 -- Number of spaces a tab represents
+	end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'markdown',
+	callback = function()
+		vim.opt_local.expandtab = true -- Use spaces instead of tabs
+		vim.opt_local.shiftwidth = 2 -- Number of spaces for indentation
+		vim.opt_local.softtabstop = 2 -- Number of spaces per tab press
+		vim.opt_local.tabstop = 2 -- Number of spaces a tab represents
+	end,
+})
