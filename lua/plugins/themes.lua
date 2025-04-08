@@ -39,18 +39,18 @@ return {
 		-- If you don't want to install lush, make sure to set g:zenbones_compat = 1
 		-- In Vim, compat mode is turned on as Lush only works in Neovim.
 		dependencies = 'rktjmp/lush.nvim',
-		lazy = false,
-		priority = 1000,
+		-- lazy = false,
+		-- priority = 1000,
 		-- you can set set configuration options here
 		config = function()
 			-- vim.g.zenbones_darken_comments = 45
-			vim.cmd.colorscheme('zenbones')
+			-- vim.cmd.colorscheme('zenbones')
 		end,
 	},
 	{
 		'folke/tokyonight.nvim',
 		name = 'tokyonight',
-		-- enabled = false,
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -68,6 +68,9 @@ return {
 	},
 	{
 		'rebelot/kanagawa.nvim',
+		config = function()
+			vim.cmd.colorscheme('kanagawa')
+		end,
 	},
 
 	-- {
