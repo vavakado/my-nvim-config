@@ -44,10 +44,10 @@ return {
 				vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, { desc = 'Code Actions' })
 				vim.keymap.set({ 'n', 'v' }, '<leader>lr', vim.lsp.buf.rename, { desc = 'Rename' })
 
-				if client.server_capabilities.colorProvider then
-					-- Attach document colour support
-					require('document-color').buf_attach(bufnr)
-				end
+				-- if client.server_capabilities.colorProvider then
+				-- 	-- Attach document colour support
+				-- 	require('document-color').buf_attach(bufnr)
+				-- end
 			end
 
 			lspconfig.elixirls.setup({
@@ -64,29 +64,29 @@ return {
 			--
 			--
 
-			lspconfig.tailwindcss.setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-				filetypes = { 'html', 'elixir', 'heex', 'svelte' },
-				init_options = {
-					userLanguages = {
-						elixir = 'phoenix-heex',
-						heex = 'phoenix-heex',
-						svelte = 'html',
-					},
-				},
-				settings = {
-					tailwindCSS = {
-						experimental = {
-							classRegex = {
-								'class="([^"]*)"',
-								'class: "([^"]*)"',
-								'~H""".*class="([^"]*)".*"""',
-							},
-						},
-					},
-				},
-			})
+			-- lspconfig.tailwindcss.setup({
+			-- 	capabilities = capabilities,
+			-- 	on_attach = on_attach,
+			-- 	filetypes = { 'html', 'elixir', 'heex', 'svelte' },
+			-- 	init_options = {
+			-- 		userLanguages = {
+			-- 			elixir = 'phoenix-heex',
+			-- 			heex = 'phoenix-heex',
+			-- 			svelte = 'svelte',
+			-- 		},
+			-- 	},
+			-- 	settings = {
+			-- 		tailwindCSS = {
+			-- 			experimental = {
+			-- 				classRegex = {
+			-- 					'class="([^"]*)"',
+			-- 					'class: "([^"]*)"',
+			-- 					'~H""".*class="([^"]*)".*"""',
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- })
 
 			lspconfig.html.setup({
 				filetypes = { 'html', 'heex' },

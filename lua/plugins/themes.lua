@@ -69,7 +69,13 @@ return {
 	{
 		'rebelot/kanagawa.nvim',
 		config = function()
-			vim.cmd.colorscheme('kanagawa')
+			-- vim.cmd.colorscheme('kanagawa')
+		end,
+	},
+	{
+		'savq/melange-nvim',
+		config = function()
+			vim.cmd.colorscheme('melange')
 		end,
 	},
 

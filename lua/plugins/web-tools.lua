@@ -1,13 +1,13 @@
 return {
-	{
-		'mrshmllow/document-color.nvim',
-		config = function()
-			require('document-color').setup({
-				-- Default options
-				mode = 'background', -- "background" | "foreground" | "single"
-			})
-		end,
-	},
+	-- {
+	-- 	'mrshmllow/document-color.nvim',
+	-- 	config = function()
+	-- 		require('document-color').setup({
+	-- 			-- Default options
+	-- 			mode = 'background', -- "background" | "foreground" | "single"
+	-- 		})
+	-- 	end,
+	-- },
 	-- {
 	-- 	'litoj/colorizer.nvim',
 	-- 	config = function()
@@ -67,5 +67,16 @@ return {
 		'izocha/graphviz.nvim',
 		ft = { 'dot' },
 		config = true,
+	},
+	{
+		'luckasRanarison/tailwind-tools.nvim',
+		name = 'tailwind-tools',
+		build = ':UpdateRemotePlugins',
+		dependencies = {
+			'nvim-treesitter/nvim-treesitter',
+			'nvim-telescope/telescope.nvim', -- optional
+			'neovim/nvim-lspconfig', -- optional
+		},
+		opts = {}, -- your configuration
 	},
 }
