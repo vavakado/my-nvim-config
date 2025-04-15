@@ -55,22 +55,23 @@ return {
 			url_patterns = {
 				['github%.com'] = {
 					branch = '/tree/{branch}',
-					file = '/blob/{branch}/{file}#L{line}',
+					file = '/blob/{branch}/{file}#L{line_start}-L{line_end}',
+					permalink = '/blob/{commit}/{file}#L{line_start}-L{line_end}',
 					commit = '/commit/{commit}',
 				},
 				['gitlab%.com'] = {
 					branch = '/-/tree/{branch}',
-					file = '/-/blob/{branch}/{file}#L{line}',
+					file = '/-/blob/{branch}/{file}#L{line_start}',
 					commit = '/-/commit/{commit}',
 				},
 				['bitbucket%.org'] = {
 					branch = '/src/{branch}',
-					file = '/src/{branch}/{file}#lines-{line}',
+					file = '/src/{branch}/{file}#lines-{line_start}',
 					commit = '/commits/{commit}',
 				},
 				['git.vavakado.xyz'] = {
 					branch = '/src/branch/{branch}',
-					file = '/src/branch/{branch}/{file}#L{line}',
+					file = '/src/branch/{branch}/{file}#L{line_start}',
 					commit = '/commit/{commit}',
 				},
 			},
