@@ -139,3 +139,86 @@ vim.api.nvim_create_autocmd('FileType', {
 		vim.opt_local.tabstop = 2 -- Number of spaces a tab represents
 	end,
 })
+
+local function open_todays_note()
+	local date = os.date('%Y-%m-%d')
+	local notes_dir = '~/Documents/notes/daily/'
+	local note_path = notes_dir .. date .. '.md'
+
+	vim.cmd('e ' .. vim.fn.expand(note_path))
+end
+
+-- Create the :NoteToday command
+vim.api.nvim_create_user_command('NoteToday', open_todays_note, { desc = "Open today's note" })
+
+-- Function to extract the timestamp from the filename
+local function get_timestamp(filename)
+	local year, month, day, hour, min, sec = filename:match('(%d+)-(%d+)-(%d+)T(%d+):(%d+):(%d+)')
+	if year and month and day and hour and min and sec then
+		return year, month, day, hour, min, sec
+	else
+		return nil
+	end
+end
+
+-- Function to compare two filenames based on their timestamps
+local function compare_files(file1, file2)
+	local year1, month1, day1, hour1, min1, sec1 = get_timestamp(file1)
+	local year2, month2, day2, hour2, min2, sec2 = get_timestamp(file2)
+
+	-- Compare each component (year, month, day, hour, minute, second)
+	if year1 ~= year2 then
+		return year1 > year2
+	end
+	if month1 ~= month2 then
+		return month1 > month2
+	end
+	if day1 ~= day2 then
+		return day1 > day2
+	end
+	if hour1 ~= hour2 then
+		return hour1 > hour2
+	end
+	if min1 ~= min2 then
+		return min1 > min2
+	end
+	return sec1 > sec2
+end
+
+local source_dir = '/home/vavakado/Pictures/Screenshots'
+local target_dir = '/home/vavakado/Documents/notes/pics'
+
+-- Function to copy the latest screenshot
+local function copy_latest_screenshot()
+	local latest_file
+	local screenshots = vim.fn.glob(source_dir .. '/*.png', true, true) -- List all .png files in the source directory
+
+	for _, file in ipairs(screenshots) do
+		local filename = vim.fn.fnamemodify(file, ':t') -- Get the file name without path
+		local year, month, day, hour, min, sec = get_timestamp(filename)
+
+		-- Only consider files with valid timestamp format
+		if year then
+			if not latest_file or compare_files(filename, latest_file) then
+				latest_file = filename
+			end
+		end
+	end
+
+	if latest_file then
+		local source_path = source_dir .. '/' .. latest_file
+		local target_path = target_dir .. '/' .. latest_file
+
+		-- Copy the file
+		local success, err = vim.loop.fs_copyfile(source_path, target_path)
+		if success then
+			print('Copied ' .. latest_file .. ' to ' .. target_path)
+		else
+			print('Failed to copy ' .. latest_file .. ': ' .. err)
+		end
+	else
+		print('No valid screenshots found')
+	end
+end
+
+vim.api.nvim_create_user_command('CopyLatestScreenshot', copy_latest_screenshot, { desc = 'Copy the latest screenshot' })
