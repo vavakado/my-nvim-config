@@ -5,19 +5,18 @@ return {
 		config = function()
 			local builtin = require('telescope.builtin')
 			vim.keymap.set('n', '<Leader>ff', builtin.find_files, { desc = 'Find Files' })
-			vim.keymap.set('n', '<Leader>fp', require('telescope').extensions.projects.projects, { desc = 'Find Projects' })
 			vim.keymap.set('n', '<Leader>fw', builtin.live_grep, { desc = 'Find Word' })
 			vim.keymap.set('n', '<Leader>fa', '<cmd>cd ~/.config/nvim/<CR><cmd>Telescope find_files<CR>', { desc = 'Find config' })
 			vim.keymap.set('n', '<Leader>fb', builtin.buffers, { desc = 'Find Buffers' })
 			vim.keymap.set('n', '<Leader>uc', builtin.colorscheme, { desc = 'Find Colorschemes' })
 		end,
 		opts = {
-			extensions = {
-				file_browser = {
-					theme = 'dropdown',
-					-- other options
-				},
-			},
+			-- extensions = {
+			-- 	file_browser = {
+			-- 		theme = 'dropdown',
+			-- 		-- other options
+			-- 	},
+			-- },
 		},
 	},
 	{
@@ -31,7 +30,12 @@ return {
 		'nvim-telescope/telescope-file-browser.nvim',
 		config = function()
 			require('telescope').load_extension('file_browser')
-			vim.keymap.set('n', '<Leader>fo', require('telescope').extensions.file_browser.file_browser, { desc = 'Find Files Dropdown' })
+			vim.keymap.set(
+				'n',
+				'<Leader>fo',
+				"<cmd>lua require('telescope').extensions.file_browser.file_browser(require('telescope.themes').get_ivy({}))<cr>",
+				{ desc = 'Find Files Dropdown' }
+			)
 		end,
 	},
 	-- {
