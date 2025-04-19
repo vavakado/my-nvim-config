@@ -30,6 +30,13 @@ return {
 			--   If not available, we use `mini` as the fallback
 			'rcarriga/nvim-notify',
 		},
+		keys = {
+			{
+				'<leader>x',
+				'<cmd>NoiceDismiss<CR>',
+				desc = 'Dismiss Notification',
+			},
+		},
 	},
 	{
 		'rcarriga/nvim-notify',
