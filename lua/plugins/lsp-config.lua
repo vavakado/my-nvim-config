@@ -30,11 +30,13 @@ return {
 	},
 	{
 		'neovim/nvim-lspconfig',
+		dependencies = { 'saghen/blink.cmp' },
 		config = function()
 			local lspconfig = require('lspconfig')
-			local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
-			local capabilities = cmp_nvim_lsp.default_capabilities()
+			-- local cmp_nvim_lsp = require('cmp_nvim_lsp')
+
+			-- local capabilities = cmp_nvim_lsp.default_capabilities()
 
 			local function on_attach(client)
 				vim.lsp.inlay_hint.enable(true)
@@ -51,7 +53,7 @@ return {
 			end
 
 			lspconfig.elixirls.setup({
-				capabilities = capabilities,
+				-- capabilities = capabilities,
 				on_attach = on_attach,
 				cmd = { '/home/vavakado/.nix-profile/bin/elixir-ls' },
 			})
@@ -108,7 +110,7 @@ return {
 			})
 
 			lspconfig.hls.setup({
-				capabilities = capabilities,
+				-- capabilities = capabilities,
 				on_attach = on_attach,
 				settings = {
 					haskell = {
@@ -139,7 +141,7 @@ return {
 
 			for _, lsp in ipairs(servers) do
 				lspconfig[lsp].setup({
-					capabilities = capabilities,
+					-- capabilities = capabilities,
 					on_attach = on_attach,
 				})
 			end
