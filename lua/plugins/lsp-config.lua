@@ -38,7 +38,7 @@ return {
 
 			local function on_attach(client)
 				vim.lsp.inlay_hint.enable(true)
-				vim.keymap.set('n', 'J', vim.lsp.buf.hover, { desc = 'Hover' })
+				-- vim.keymap.set('n', 'J', vim.lsp.buf.hover, { desc = 'Hover' })
 				vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
 				vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
 				vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, { desc = 'Code Actions' })
