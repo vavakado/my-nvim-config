@@ -41,7 +41,7 @@ return {
 					-- Disable sections and component separators
 					component_separators = '',
 					section_separators = '',
-					theme = 'auto',
+					theme = 'molokai',
 				},
 				sections = {
 					-- these are to remove the defaults

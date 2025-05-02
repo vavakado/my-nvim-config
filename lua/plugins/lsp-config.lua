@@ -36,10 +36,8 @@ return {
 
 			local function on_attach()
 				vim.lsp.inlay_hint.enable(true)
-				vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>',
-					{ noremap = true, silent = true })
-				vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>',
-					{ noremap = true, silent = true })
+				vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
+				vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
 				vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, { desc = 'Code Actions' })
 				vim.keymap.set({ 'n', 'v' }, '<leader>lr', vim.lsp.buf.rename, { desc = 'Rename' })
 			end
@@ -87,6 +85,20 @@ return {
 						formattingProvider = 'fourmolu',
 					},
 				},
+			})
+
+			lspconfig.harper_ls.setup({
+				on_attach = on_attach,
+				settings = {
+					['harper-ls'] = {
+						linters = {
+							AvoidCurses = false,
+							-- SentenceCapitalization = false,
+							-- SpellCheck = false,
+						},
+					},
+				},
+				filetypes = { 'markdown' },
 			})
 
 			local servers = {
