@@ -45,13 +45,14 @@ return {
 	-- },
 	{
 		'ray-x/web-tools.nvim',
+		enabled = false,
 		config = function()
 			require('web-tools').setup({
 				keymaps = {
 					rename = nil, -- by default use same setup of lspconfig
-					repeat_rename = '.', -- . to repeat
+					repeat_rename = nil, -- . to repeat
 				},
-				hurl = { -- hurl default
+				hurl = {   -- hurl default
 					show_headers = false, -- do not show http headers
 					floating = false, -- use floating windows (need guihua.lua)
 					json5 = true, -- use json5 parser require json5 treesitter
@@ -77,6 +78,6 @@ return {
 			'nvim-telescope/telescope.nvim', -- optional
 			'neovim/nvim-lspconfig', -- optional
 		},
-		opts = {}, -- your configuration
+		opts = {},                  -- your configuration
 	},
 }
