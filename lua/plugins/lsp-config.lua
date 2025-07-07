@@ -36,8 +36,10 @@ return {
 
 			local function on_attach()
 				vim.lsp.inlay_hint.enable(true)
-				vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
-				vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
+				vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>',
+					{ noremap = true, silent = true })
+				vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>',
+					{ noremap = true, silent = true })
 				vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, { desc = 'Code Actions' })
 				vim.keymap.set({ 'n', 'v' }, '<leader>lr', vim.lsp.buf.rename, { desc = 'Rename' })
 			end
@@ -87,6 +89,37 @@ return {
 				},
 			})
 
+			lspconfig.vtsls.setup({
+				on_attach = on_attach,
+				settings = {
+					typescript = {
+						updateImportsOnFileMove = { enabled = 'always' },
+						inlayHints = {
+							parameterNames = { enabled = 'all' },
+							parameterTypes = { enabled = true },
+							variableTypes = { enabled = true },
+							propertyDeclarationTypes = { enabled = true },
+							functionLikeReturnTypes = { enabled = true },
+							enumMemberValues = { enabled = true },
+						},
+					},
+					javascript = {
+						updateImportsOnFileMove = { enabled = 'always' },
+						inlayHints = {
+							parameterNames = { enabled = 'literals' },
+							parameterTypes = { enabled = true },
+							variableTypes = { enabled = true },
+							propertyDeclarationTypes = { enabled = true },
+							functionLikeReturnTypes = { enabled = true },
+							enumMemberValues = { enabled = true },
+						},
+					},
+					vtsls = {
+						enableMoveToFileCodeAction = true,
+					},
+				},
+			})
+
 			lspconfig.harper_ls.setup({
 				on_attach = on_attach,
 				settings = {
@@ -101,8 +134,14 @@ return {
 				filetypes = { 'markdown' },
 			})
 
+			lspconfig.qmlls.setup({
+				cmd = { 'qmlls', '-E' },
+			})
+
 			local servers = {
+				'astro',
 				'clangd',
+				'fennel_ls',
 				'csharp_ls',
 				'cssls',
 				'docker_compose_language_service',
@@ -116,7 +155,6 @@ return {
 				'pylsp',
 				'sqlls',
 				'svelte',
-				'ts_ls',
 				'zls',
 			}
 

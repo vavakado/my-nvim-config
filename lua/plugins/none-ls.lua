@@ -8,7 +8,9 @@ return {
 				null_ls.builtins.diagnostics.credo,
 
 				null_ls.builtins.formatting.mix,
-				null_ls.builtins.formatting.prettierd,
+				null_ls.builtins.formatting.prettierd.with({
+					extra_filetypes = { 'svelte', 'typescriptreact', 'astro' },
+				}),
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.nixfmt,
 				null_ls.builtins.formatting.gdformat,
