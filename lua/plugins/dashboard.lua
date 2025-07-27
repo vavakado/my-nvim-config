@@ -9,6 +9,7 @@ return {
 			local dashboard = require('alpha.themes.dashboard')
 			local inspire = require('inspire')
 
+			-- TODO: add more header options
 			local header = {
 				'           ⣀⣠⠶⠶⠖⣻⣟⠲⠶⠶⣤⣀      ',
 				'        ⢀⣴⠛⠁   ⢀⡿⢻⡄   ⠈⠛⣦⡀   ',
@@ -33,8 +34,7 @@ return {
 			dashboard.section.header.val = header
 			dashboard.section.buttons.val = {
 				dashboard.button('e', '  > New file', ':ene <BAR> startinsert <CR>'),
-				dashboard.button('f', '󰈞  > Find file',
-					':cd $HOME/Development/projects/personal/ | Telescope find_files<CR>'),
+				dashboard.button('f', '󰈞  > Find file', ':cd $HOME/Development/projects/personal/ | Telescope find_files<CR>'),
 				dashboard.button('r', '  > Recent', ':Telescope oldfiles<CR>'),
 				dashboard.button('n', '󰎚  > Notes', ':cd ~/Documents/notes/ | Telescope find_files<CR>'),
 				dashboard.button('q', '󰅙  > Quit NVIM', ':qa<CR>'),
@@ -44,11 +44,9 @@ return {
 		end,
 	},
 	{
-		{
-			'RileyGabrielson/inspire.nvim',
-			config = function()
-				require('inspire').setup({})
-			end,
-		},
+		'RileyGabrielson/inspire.nvim',
+		config = function()
+			require('inspire').setup({})
+		end,
 	},
 }

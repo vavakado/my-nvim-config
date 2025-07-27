@@ -10,23 +10,17 @@ return {
 		local wk = require('which-key')
 
 		wk.add({
-			{ '<leader>d', group = 'Debugger' },
-			{ '<leader>d_', hidden = true },
 			{ '<leader>f', group = 'Find' },
 			{ '<leader>f_', hidden = true },
 			{ '<leader>g', group = 'Git' },
 			{ '<leader>g_', hidden = true },
-			{ '<leader>l', group = 'Language' },
+			{ '<leader>l', group = 'LSP' },
 			{ '<leader>l_', hidden = true },
-			{ '<leader>t', group = 'Terminal' },
-			{ '<leader>t_', hidden = true },
 			{ '<leader>u', group = 'Ui' },
 			{ '<leader>u_', hidden = true },
 			{ '<leader>b', group = 'Buffers' },
 			{ '<leader>b_', hidden = true },
-			{ '<leader>p', group = 'Pomodoro' },
-			{ '<leader>p_', hidden = true },
-			{ '<leader>o', group = 'Org' },
+			{ '<leader>o', group = 'Open' },
 			{ '<leader>o_', hidden = true },
 		})
 	end,

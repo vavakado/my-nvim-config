@@ -13,7 +13,7 @@ return {
 			},
 			signcolumn = true, -- toggle with `:Gitsigns toggle_signs`
 			linehl = false, -- toggle with `:Gitsigns toggle_linehl`
-			numhl = false, -- toggle with `:Gitsigns toggle_nunhl`
+			numhl = false, -- toggle with `:Gitsigns toggle_numhl`
 			word_diff = false, -- toggle with `:Gitsigns toggle_word_diff`
 			sign_priority = 9,
 			watch_gitdir = {
@@ -21,9 +21,13 @@ return {
 			},
 			attach_to_untracked = false,
 		})
-		--		if pcall(require, "scrollbar") then
-		--			require("scrollbar.handlers.gitsigns").setup()
-		--		end
 	end,
+	keys = {
+		{
+			'<leader>ob',
+			'<cmd>Gitsigns blame<CR>',
+			desc = 'Opem git blame',
+		},
+	},
 	event = { 'BufReadPre', 'BufNewFile' },
 }

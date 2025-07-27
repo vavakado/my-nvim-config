@@ -10,43 +10,8 @@ return {
 			vim.keymap.set('n', '<Leader>fb', builtin.buffers, { desc = 'Find Buffers' })
 			vim.keymap.set('n', '<Leader>uc', builtin.colorscheme, { desc = 'Find Colorschemes' })
 		end,
-		opts = {
-			-- extensions = {
-			-- 	file_browser = {
-			-- 		theme = 'dropdown',
-			-- 		-- other options
-			-- 	},
-			-- },
-		},
+		opts = {},
 	},
-	{
-		'dawsers/telescope-locate.nvim',
-		config = function()
-			require('telescope').load_extension('locate')
-			-- no keybind cuz it doesn't support dynamic search
-		end,
-	},
-	{
-		'nvim-telescope/telescope-file-browser.nvim',
-		config = function()
-			require('telescope').load_extension('file_browser')
-			vim.keymap.set(
-				'n',
-				'<Leader>fo',
-				"<cmd>lua require('telescope').extensions.file_browser.file_browser(require('telescope.themes').get_ivy({}))<cr>",
-				{ desc = 'Find Files Dropdown' }
-			)
-		end,
-	},
-	-- {
-	-- 	'nvim-telescope/telescope-fzf-native.nvim',
-	-- 	build = 'make',
-	-- 	config = function()
-	-- 		-- To get fzf loaded and working with telescope, you need to call
-	-- 		-- load_extension, somewhere after setup function:
-	-- 		require('telescope').load_extension('fzf')
-	-- 	end,
-	-- },
 	{
 		'nvim-telescope/telescope-ui-select.nvim',
 		config = function()

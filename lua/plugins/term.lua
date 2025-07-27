@@ -30,9 +30,6 @@ return {
 			direction = 'float',
 			float_opts = { border = 'rounded' },
 		})
-		vim.keymap.set('n', '<Leader>tt', '<Cmd>ToggleTerm direction=float<CR>', { desc = 'Toggle Terminal' })
-		vim.keymap.set('n', '<Leader>tv', '<Cmd>ToggleTerm size=80 direction=vertical<CR>', { desc = 'Terminal Vertical' })
-		vim.keymap.set('n', '<Leader>th', '<Cmd>ToggleTerm size=16 direction=horizontal<CR>', { desc = 'Terminal Horizontal' })
 		vim.keymap.set('n', '<F7>', '<Cmd>execute v:count . "ToggleTerm"<CR>', { desc = 'Toggle Terminal' })
 		vim.keymap.set('t', '<F7>', '<Cmd>ToggleTerm<CR>', { desc = 'Toggle Terminal' })
 		vim.keymap.set('i', '<F7>', '<Esc><Cmd>ToggleTerm<CR>', { desc = 'Toggle Terminal' })

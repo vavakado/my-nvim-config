@@ -10,7 +10,7 @@ return {
 		neogit.setup({
 			graph_style = 'unicode',
 		})
-		vim.keymap.set('n', '<Leader>gg', neogit.open, { desc = 'Git Git' })
+		vim.keymap.set('n', '<Leader>og', neogit.open, { desc = 'Open Git' })
 		vim.keymap.set('n', '<Leader>gc', neogit.action('commit', 'commit', { '--all' }), { desc = 'Git Commit' })
 		vim.keymap.set('n', '<Leader>gp', neogit.action('pull', 'from_pushremote', {}), { desc = 'Git pull' })
 		vim.keymap.set('n', '<Leader>gP', neogit.action('push', 'to_upstream', {}), { desc = 'Git Push' })

@@ -8,7 +8,7 @@ return {
 			},
 			win_options = {
 				-- wrap = false,
-				signcolumn = 'no',
+				signcolumn = 'yes',
 				-- cursorcolumn = false,
 				-- foldcolumn = '0',
 				-- spell = false,
@@ -21,7 +21,7 @@ return {
 		},
 		keys = {
 			{
-				'<leader>ft',
+				'<leader>o-',
 				'<cmd>Oil .<CR>',
 				desc = 'Filemanager',
 			},
