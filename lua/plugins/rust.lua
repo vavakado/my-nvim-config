@@ -17,7 +17,17 @@ return {
 					default_settings = {
 						-- rust-analyzer language server configuration
 						['rust-analyzer'] = {
-							checkOnSave = false,
+							procMacro = {
+								enable = false,
+								ignored = {
+									['utoipauto'] = { 'utoipauto' },
+									['tokio-macros'] = { 'main' },
+									['async-trait'] = { 'async_trait' },
+									['napi-derive'] = { 'napi' },
+									['async-recursion'] = { 'async_recursion' },
+								},
+							},
+							checkOnSave = true,
 						},
 					},
 				},

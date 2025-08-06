@@ -109,6 +109,9 @@ return {
 			'ocamllsp',
 			'ols',
 		}
+		if vim.fn.executable('zls') == 1 then
+			servers[#servers + 1] = 'zls'
+		end
 
 		for _, lsp in ipairs(servers) do
 			lspconfig[lsp].setup({
