@@ -1,4 +1,6 @@
 column_width = 160
 line_endings = "Unix"
 quote_style = "AutoPreferSingle"
+syntax = "LuaJIT"
+indent_type = "Spaces"
 call_parentheses = "Always"

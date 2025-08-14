@@ -1,33 +1,33 @@
 return {
-	'lewis6991/gitsigns.nvim',
-	config = function()
-		local gitsigns = require('gitsigns')
-		gitsigns.setup({
-			signs = {
-				add = { text = '▐' },
-				change = { text = '▐' },
-				delete = { text = '▐' },
-				topdelete = { text = '▐' },
-				changedelete = { text = '▐' },
-				untracked = { text = '▐' },
-			},
-			signcolumn = true, -- toggle with `:Gitsigns toggle_signs`
-			linehl = false, -- toggle with `:Gitsigns toggle_linehl`
-			numhl = false, -- toggle with `:Gitsigns toggle_numhl`
-			word_diff = false, -- toggle with `:Gitsigns toggle_word_diff`
-			sign_priority = 9,
-			watch_gitdir = {
-				interval = 1000,
-			},
-			attach_to_untracked = false,
-		})
-	end,
-	keys = {
-		{
-			'<leader>ob',
-			'<cmd>Gitsigns blame<CR>',
-			desc = 'Opem git blame',
-		},
-	},
-	event = { 'BufReadPre', 'BufNewFile' },
+    'lewis6991/gitsigns.nvim',
+    config = function()
+        local gitsigns = require('gitsigns')
+        gitsigns.setup({
+            signs = {
+                add = { text = '▐' },
+                change = { text = '▐' },
+                delete = { text = '▐' },
+                topdelete = { text = '▐' },
+                changedelete = { text = '▐' },
+                untracked = { text = '▐' },
+            },
+            signcolumn = true, -- toggle with `:Gitsigns toggle_signs`
+            linehl = false, -- toggle with `:Gitsigns toggle_linehl`
+            numhl = false, -- toggle with `:Gitsigns toggle_numhl`
+            word_diff = false, -- toggle with `:Gitsigns toggle_word_diff`
+            sign_priority = 9,
+            watch_gitdir = {
+                interval = 1000,
+            },
+            attach_to_untracked = false,
+        })
+    end,
+    keys = {
+        {
+            '<leader>ob',
+            '<cmd>Gitsigns blame<CR>',
+            desc = 'Opem git blame',
+        },
+    },
+    event = { 'BufReadPre', 'BufNewFile' },
 }
