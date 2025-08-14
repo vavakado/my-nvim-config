@@ -1,5 +1,6 @@
 return {
 	'supermaven-inc/supermaven-nvim',
+	enabled = false,
 	config = function()
 		require('supermaven-nvim').setup({
 			ignore_filetypes = { 'md', 'markdown', 'org', 'text' },

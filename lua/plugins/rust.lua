@@ -18,8 +18,9 @@ return {
 						-- rust-analyzer language server configuration
 						['rust-analyzer'] = {
 							procMacro = {
-								enable = false,
+								enable = true,
 								ignored = {
+									['utoipa'] = { 'path' },
 									['utoipauto'] = { 'utoipauto' },
 									['tokio-macros'] = { 'main' },
 									['async-trait'] = { 'async_trait' },
